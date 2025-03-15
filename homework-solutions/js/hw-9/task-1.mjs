@@ -11,10 +11,12 @@
 const character = { name: 'Barney', age: 36, gender: 'male', isQa: true };
 
 // 1
-let keyWithFourChars;
+let keyWithFourChars = Object.keys(character).filter((key) => key.length === 4);
+console.log(keyWithFourChars);
 
 // 2
-let stringValues;
+let stringValues = Object.values(character).filter((value) => typeof value === 'string');
+console.log(stringValues);
 
 // 3
 /* Do not touch this part */
@@ -22,10 +24,16 @@ const logSpy = jest.spyOn(console, 'log');
 // ---
 
 // Ваш код
-let keyValuePairs;
+let keyValuePairs = Object.entries(character);
 
-// 4
-let hasSalaryKey1stOption;
-let hasSalaryKey2ndOption;
+for (const [key, value] of keyValuePairs) {
+  console.log(`key = ${key}, value = ${value}`);
+}
+
+// 4. Проверить, есть ли в объекте ключ salary, результат присвоить в переменные "hasSalaryKey1stOption | hasSalaryKey2ndOption"
+   //(Реализовать 2мя способами: через оператор "in" (1st) и "Object.hasOwn()" (2nd))
+
+let hasSalaryKey1stOption = 'salary' in character;
+let hasSalaryKey2ndOption = Object.hasOwn(character, 'salary');
 
 export { keyWithFourChars, stringValues, hasSalaryKey1stOption, hasSalaryKey2ndOption, keyValuePairs, logSpy };
