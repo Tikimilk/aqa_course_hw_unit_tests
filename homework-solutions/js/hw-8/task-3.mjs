@@ -5,9 +5,18 @@
 
   Пример: const arr = [5,2,7,3,8,1,6] //4
 */
+const numbers = [5, 2, 7, 3, 8, 1, 6];
 
 function findMissingNumber(numbers) {
-  // Ваш код
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  let n = numbers.length + 1;
+  let expectedSum = (n * (n + 1)) / 2;
+  return expectedSum - sum;
 }
+
+console.log(findMissingNumber(numbers)); 
 
 export { findMissingNumber };
