@@ -20,7 +20,27 @@ function getRandomArbitrary(min, max) {
 }
 
 function uniqueRandomGenerator(n) {
-  // Ваш код
+  let numbers = [];
+  let usedNumbers = [];
+
+  for (let i = 1; i <= n; i++) {
+    numbers.push(i);
+  }
+  
+  return () => {
+    if (usedNumbers.length < n) {
+      let randomIndex = Math.floor(getRandomArbitrary(0, numbers.length));
+      let randomNumber = numbers[randomIndex];
+
+      usedNumbers.push(randomNumber);
+      numbers.splice(randomIndex, 1);
+      return randomNumber;
+    } else {
+      return 'All numbers were received';
+    }
+  };
 }
+
+const numbers = uniqueRandomGenerator(5);
 
 export { uniqueRandomGenerator };
