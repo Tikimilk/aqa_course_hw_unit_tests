@@ -31,5 +31,5 @@ CSS: все элементы ‘span’ и  ‘button’ с классом ‘co
 
 
 Xpath: используя за основу селектор //*[@id='submit'] найти элемент body 
-  //*[@id='submit']/ancestor::body
+//*[@id='submit']/ancestor::body
   
